@@ -22,96 +22,55 @@ import { faShieldHalved, faTrophy, faBug, faDollarSign } from "@fortawesome/free
 const audits = [
   {
     date: "May 2025",
-    platform: "Sherlock",
-    protocol: "ZKP2P V2",
-    details: "H-1",
-    payout: "2170 OP",
-    rank: "4/75",
+    platform: "Cantina",
+    protocol: "Primev Validator Registry",
+    details: "M-1",
+    rank: "6th",
     link: null,
     isPrivate: true
   },
   {
-    date: "Feb 2025",
-    platform: "CodeHawks",
-    protocol: "Zaros Part 2",
-    details: "H-2, L-1",
-    payout: "$557.46",
-    rank: "24/85",
-    link: "https://codehawks.cyfrin.io/c/2025-01-zaros-part-2"
-  },
-  {
-    date: "Feb 2025",
-    platform: "CodeHawks",
-    protocol: "RAAC Core",
-    details: "H-4, M-4",
-    payout: "$179.94",
-    rank: "-",
-    link: "https://codehawks.cyfrin.io/c/2025-02-raac"
+    date: "Apr 2025",
+    platform: "Sherlock",
+    protocol: "ZKP2P V2",
+    details: "H-1",
+    rank: "4th",
+    link: null,
+    isPrivate: true
   },
   {
     date: "Jan 2025",
     platform: "CodeHawks",
     protocol: "Ignite",
     details: "L-1",
-    payout: "$340.21",
-    rank: "23/94",
+    rank: "12th",
     link: "https://codehawks.cyfrin.io/c/2025-01-benqi"
-  },
-  {
-    date: "Nov 2024",
-    platform: "Sherlock",
-    protocol: "Debita Finance V3",
-    details: "H-1, M-1",
-    payout: "$76.84",
-    rank: "34/56",
-    link: "https://audits.sherlock.xyz/contests/627?filter=results"
-  },
-  {
-    date: "Oct 2024",
-    platform: "CodeHawks",
-    protocol: "Dria",
-    details: "H-1, M-2",
-    payout: "$11.92",
-    rank: "64/127",
-    link: "https://codehawks.cyfrin.io/c/2024-10-swan-dria"
   },
   {
     date: "Oct 2024",
     platform: "Sherlock",
     protocol: "Axion",
     details: "H-1",
-    payout: "$323.43",
     rank: "8th",
     link: "https://audits.sherlock.xyz/contests/552?filter=results"
   },
   {
-    date: "Oct 2024",
+    date: "Aug 2024",
     platform: "CodeHawks",
-    protocol: "Starknet Staking",
-    details: "M-1",
-    payout: "$349.42",
-    rank: "34th",
-    link: "https://codehawks.cyfrin.io/c/2024-09-starknet-staking/"
+    protocol: "Fjord Token Staking",
+    details: "H-1",
+    rank: "20th",
+    link: null
   }
 ];
 
 const calculateStats = () => {
-  const highs = audits.reduce((acc, audit) => {
-    const highMatch = audit.details.match(/H-(\d+)/);
-    return acc + (highMatch ? parseInt(highMatch[1]) : 0);
-  }, 0);
+  // Total stats across all contests, not just top 20
+  const highs = 18;
+  const mediums = 10;
+  const totalWinnings = "$4,000+";
 
-  const mediums = audits.reduce((acc, audit) => {
-    const medMatch = audit.details.match(/M-(\d+)/);
-    return acc + (medMatch ? parseInt(medMatch[1]) : 0);
-  }, 0);
-
-  const lows = audits.reduce((acc, audit) => {
-    const lowMatch = audit.details.match(/L-(\d+)/);
-    return acc + (lowMatch ? parseInt(lowMatch[1]) : 0);
-  }, 0);
-
-  return { highs, mediums, lows, contests: audits.length };
+  return { highs, mediums, totalWinnings, contests: audits.length };
 };
 
 const StatCard = ({ icon, title, value, gradient }) => (
@@ -159,17 +118,11 @@ const AuditsSection = () => {
             Security Audit Portfolio
           </Heading>
           <Text color="gray.400" fontSize="lg">
-            Competitive audit findings across leading platforms
+            Notable finishes (Top 20) across Sherlock, CodeHawks, and Cantina
           </Text>
         </Box>
 
         <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6} w="100%">
-          <StatCard
-            icon={faBug}
-            title="Total Findings"
-            value={stats.highs + stats.mediums + stats.lows}
-            gradient="linear(to-r, #00ff88, #00ccff)"
-          />
           <StatCard
             icon={faShieldHalved}
             title="High Severity"
@@ -177,16 +130,22 @@ const AuditsSection = () => {
             gradient="linear(to-r, #ff0080, #ff8c00)"
           />
           <StatCard
-            icon={faTrophy}
-            title="Contests"
-            value={stats.contests}
-            gradient="linear(to-r, #00ccff, #0080ff)"
+            icon={faBug}
+            title="Medium Severity"
+            value={stats.mediums}
+            gradient="linear(to-r, #ff8c00, #ffd700)"
           />
           <StatCard
             icon={faDollarSign}
-            title="Mediums + Lows"
-            value={`${stats.mediums} + ${stats.lows}`}
+            title="Total Winnings"
+            value={stats.totalWinnings}
             gradient="linear(to-r, #00ff88, #00ccff)"
+          />
+          <StatCard
+            icon={faTrophy}
+            title="Top 20 Finishes"
+            value={stats.contests}
+            gradient="linear(to-r, #00ccff, #0080ff)"
           />
         </SimpleGrid>
 
@@ -205,7 +164,6 @@ const AuditsSection = () => {
                 <Th color="gray.300">Platform</Th>
                 <Th color="gray.300">Protocol</Th>
                 <Th color="gray.300">Findings</Th>
-                <Th color="gray.300">Payout</Th>
                 <Th color="gray.300">Rank</Th>
               </Tr>
             </Thead>
@@ -219,7 +177,11 @@ const AuditsSection = () => {
                   <Td color="gray.300">{audit.date}</Td>
                   <Td>
                     <Badge
-                      colorScheme={audit.platform === "Sherlock" ? "purple" : "cyan"}
+                      colorScheme={
+                        audit.platform === "Sherlock" ? "purple" :
+                        audit.platform === "Cantina" ? "orange" :
+                        "cyan"
+                      }
                       fontSize="sm"
                     >
                       {audit.platform}
@@ -256,7 +218,6 @@ const AuditsSection = () => {
                       })}
                     </HStack>
                   </Td>
-                  <Td color="#00ff88" fontWeight="semibold">{audit.payout}</Td>
                   <Td color="gray.400">{audit.rank}</Td>
                 </Tr>
               ))}

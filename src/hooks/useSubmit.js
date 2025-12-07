@@ -1,32 +1,47 @@
 import {useState} from "react";
 
-const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
 /**
- * This is a custom hook that can be used to submit a form and simulate an API call
- * It uses Math.random() to simulate a random success or failure, with 50% chance of each
+ * This hook uses Formspree to send real emails from the contact form
+ * Formspree is a simple service that doesn't require OAuth setup
+ * Sign up at https://formspree.io/ to get your form ID
  */
 const useSubmit = () => {
   const [isLoading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
 
   const submit = async (url, data) => {
-    const random = Math.random();
     setLoading(true);
     try {
-      await wait(2000);
-      if (random < 0.5) {
-        throw new Error("Something went wrong");
+      // Use Formspree endpoint - replace with your actual form ID from Formspree
+      const formspreeEndpoint = process.env.REACT_APP_FORMSPREE_ENDPOINT || 'https://formspree.io/f/YOUR_FORM_ID';
+
+      const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.firstName,
+          email: data.email,
+          enquiry_type: data.type,
+          message: data.comment,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
       }
+
       setResponse({
         type: 'success',
-        message: `Thanks for your submission ${data.firstName}, we will get back to you shortly!`,
-      })
+        message: `Thanks for your submission ${data.firstName}, I'll get back to you shortly!`,
+      });
     } catch (error) {
+      console.error('Form submission error:', error);
       setResponse({
         type: 'error',
         message: 'Something went wrong, please try again later!',
-      })
+      });
     } finally {
       setLoading(false);
     }

@@ -1,11 +1,45 @@
-# Personal Portfolio README
+# Smart Contract Security Portfolio
 
-Welcome to my personal portfolio repository! This repository contains the code for my portfolio website built using React, CSS, and Chakra UI. 
+Welcome to my portfolio repository! This is a modern portfolio website showcasing my smart contract security research and full-stack development work.
 
 ## Tech Stack
 
-- **React:** The portfolio is built using the React library, enabling dynamic and interactive user interfaces.
-  
-- **CSS:** Cascading Style Sheets (CSS) are used for styling and layout, ensuring a visually appealing and responsive design.
-  
-- **Chakra UI:** Chakra UI is a customizable component library for building user interfaces. It provides ready-to-use components that maintain a consistent design.
+- **React:** Built with React for a dynamic and interactive user interface
+- **Chakra UI:** Customizable component library for consistent, modern design
+- **CSS:** Custom styling with cyber security theme (dark mode with neon accents)
+- **FontAwesome:** Icon library for social links and UI elements
+
+## Setup Instructions
+
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Run Development Server**
+   ```bash
+   npm start
+   ```
+
+3. **Build for Production**
+   ```bash
+   npm run build
+   ```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── AuditsSection.js      # Security audit portfolio with stats
+│   ├── ProjectsSection.js    # Development projects showcase
+│   ├── LandingSection.js     # Hero section with bio
+│   ├── Header.js             # Navigation with social links
+│   ├── Footer.js             # Site footer
+│   └── ...
+└── App.js                    # Main application
+```
+
+## Contact
+
+Reach out via social links in the header or email: cryptogrease8@gmail.com
