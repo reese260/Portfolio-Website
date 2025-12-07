@@ -56,15 +56,25 @@ const LandingSection = () => {
   return (
     <FullScreenSection
       isDarkBackground
-      backgroundColor="#2A4365"
+      backgroundColor="#0a0e1a"
       py={16}
       spacing={8}
     >
       <VStack w="1024px" p={32} alignItems="flex-start">
-        <Heading as="h1" id="contactme-section">
-          Contact me
+        <Heading as="h1" id="contactme-section" mb={2}>
+          Get In Touch
         </Heading>
-        <Box p={6} rounded="md" w="100%">
+        <Box color="gray.400" fontSize="lg" mb={4}>
+          Interested in security audits or collaboration? Let's connect.
+        </Box>
+        <Box
+          p={6}
+          rounded="xl"
+          w="100%"
+          bg="rgba(0, 255, 136, 0.03)"
+          borderWidth="1px"
+          borderColor="rgba(0, 255, 136, 0.2)"
+        >
           <form onSubmit={(e) => {e.preventDefault(); formik.handleSubmit(e) }}>
             <VStack spacing={4}>
               <FormControl isInvalid={formik.touched.firstName && formik.errors.firstName}>
@@ -88,11 +98,10 @@ const LandingSection = () => {
               </FormControl>
               <FormControl>
                 <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" name="type" {...formik.getFieldProps("type")}>
-                  <option value="hireMe">Freelance project proposal</option>
-                  <option value="openSource">
-                    Open source consultancy session
-                  </option>
+                <Select id="type" name="type" {...formik.getFieldProps("type")} color="gray.800">
+                  <option value="audit">Security Audit / Code Review</option>
+                  <option value="development">Smart Contract Development</option>
+                  <option value="consulting">Security Consulting</option>
                   <option value="other">Other</option>
                 </Select>
               </FormControl>
@@ -106,7 +115,19 @@ const LandingSection = () => {
                 />
                 <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
               </FormControl>
-              <Button type="submit" colorScheme="purple" width="full">
+              <Button
+                type="submit"
+                width="full"
+                bg="linear-gradient(135deg, #00ff88 0%, #00ccff 100%)"
+                color="black"
+                fontWeight="bold"
+                _hover={{
+                  bg: "linear-gradient(135deg, #00ccff 0%, #0080ff 100%)",
+                  transform: "translateY(-2px)",
+                  boxShadow: "0 8px 20px rgba(0, 255, 136, 0.3)"
+                }}
+                transition="all 0.3s"
+              >
                 {isLoading ? "...Loading" : "Submit"}
               </Button>
             </VStack>

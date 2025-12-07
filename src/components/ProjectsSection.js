@@ -7,53 +7,54 @@ const projects = [
   {
     title: "Ether Wager Hub",
     description:
-      "Decentralized betting platform built on the Ethereum blockchain that uses smart contracts to place bets and select winners",
+      "Decentralized betting platform built on Ethereum blockchain using Solidity smart contracts. Features automated bet placement, winner selection, and secure fund management.",
     getImageSrc: () => require("../images/bets.jpg"),
     liveLink: 'https://etherwagerhub.com',
     sourceLink: 'https://github.com/reesephillips/Ether-Wager-App',
+    tags: ["Solidity", "Web3", "React"]
   },
   {
-    title: "Little Lemon Website",
+    title: "On-Chain SVG NFTs",
     description:
-      "Website for a fictional restaurant that allows user to view the menu and make reservations",
-    getImageSrc: () => require("../images/littlelemon.jpg"),
-    liveLink: "https://main.d1unmp802uoqzi.amplifyapp.com/",
-    sourceLink: 'https://github.com/reesephillips/Little-Lemon_Reservation',
-  },
-  {
-    title: "On-Chain SVGs",
-    description:
-      "Generate a fully on-chain SVG on the Ethreum Blockchain that contain a random word or phrase",
+      "Fully on-chain generative NFT collection deployed on Ethereum. SVG data and metadata stored directly on blockchain, no IPFS required.",
     getImageSrc: () => require("../images/funnynft.jpg"),
     liveLink: "https://funny-name-nft.vercel.app/",
     sourceLink: 'https://github.com/reesephillips/nft-name-generator',
+    tags: ["Solidity", "NFTs", "SVG"]
   },
   {
     title: "Student Management System",
     description:
-      "Create, read, update, and delete app that tracks student information and stores it in a MySQL database using Java Spring Boot",
+      "Full-stack CRUD application with Java Spring Boot backend and MySQL database. Features RESTful API architecture and responsive UI.",
     getImageSrc: () => require("../images/ems.jpg"),
     liveLink: "",
     sourceLink: 'https://github.com/reesephillips/Employee-Management-System',
+    tags: ["Java", "Spring Boot", "MySQL"]
   },
 ];
 
 const ProjectsSection = () => {
   return (
     <FullScreenSection
-      backgroundColor="white"
+      backgroundColor="#1a1f35"
       isDarkBackground
       p={8}
       alignItems="flex-start"
       spacing={8}
     >
-      <Heading as="h1" id="projects-section">
-        Featured Projects
-      </Heading>
+      <Box>
+        <Heading as="h1" id="projects-section" mb={2}>
+          Development Projects
+        </Heading>
+        <Box color="gray.400" fontSize="lg">
+          Smart contract development and full-stack applications
+        </Box>
+      </Box>
       <Box
         display="grid"
-        gridTemplateColumns="repeat(2,minmax(0,1fr))"
+        gridTemplateColumns="repeat(auto-fit,minmax(350px,1fr))"
         gridGap={8}
+        w="100%"
       >
         {projects.map((project) => (
           <Card
@@ -63,6 +64,7 @@ const ProjectsSection = () => {
             imageSrc={project.getImageSrc()}
             liveLink={project.liveLink}
             sourceLink={project.sourceLink}
+            tags={project.tags}
           />
         ))}
       </Box>

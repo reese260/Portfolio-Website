@@ -4,7 +4,8 @@ import { Avatar, Flex, Heading, VStack, Text } from "@chakra-ui/react";
 import FullScreenSection from "./FullScreenSection";
 
 const greeting = "Hello, I am Reese!";
-const bio1 = "I'm a passionate software engineer with a fascination for a variety of tech stacks both frontend and backend. I thrive on transforming innovative ideas into robust digital solutions. Proficient in Java, SQL, JavaScript, and C#, I have utilized these skills in professional environments to deliver meaningful and impactful solutions to hundres of employees across several companies. I also have a passion for blockchain and decentralization technology where I am constantly studying the latest trends and improving my skills. I'm dedicated to creating efficient, user-centric software solutions.";
+const bio1 = "Smart Contract Security Researcher & Full-Stack Developer";
+const bio2 = "I specialize in finding critical vulnerabilities in DeFi protocols and blockchain applications. With multiple high-severity findings across platforms like CodeHawks and Sherlock, I help secure millions of dollars in protocols. I also build decentralized applications and full-stack solutions, combining security expertise with development skills.";
 
 const imageSrc = {
   getImageSrc: () => require("../images/headshot.jpg")
@@ -15,15 +16,18 @@ const LandingSection = () => (
     justifyContent="center"
     alignItems="center"
     isDarkBackground
-    backgroundColor="#2A4365"
+    backgroundColor="#0a0e1a"
   >
     <Flex alignItems="center" justifyContent="center">
-      <VStack spacing={5}>
+      <VStack spacing={5} maxW="800px" textAlign="center">
         <Avatar src={imageSrc.getImageSrc()} size='2xl' />
         <Heading as="h6" size="lg" paddingTop='20px'>
           {greeting}
         </Heading>
-        <Text fontSize='lg' font>{bio1}</Text>
+        <Text fontSize='2xl' fontWeight="bold" bgGradient="linear(to-r, #00ff88, #00ccff)" bgClip="text">
+          {bio1}
+        </Text>
+        <Text fontSize='lg'>{bio2}</Text>
       </VStack>
     </Flex>
   </FullScreenSection>

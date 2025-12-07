@@ -4,15 +4,14 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
   faLinkedin,
-  faMedium,
-  faStackOverflow,
+  faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { Box, HStack } from "@chakra-ui/react";
 
 const socials = [
   {
-    icon: faEnvelope,
-    url: "mailto: rjphillips485@gmail.com",
+    icon: faTwitter,
+    url: "https://x.com/Greese26",
   },
   {
     icon: faGithub,
@@ -21,6 +20,10 @@ const socials = [
   {
     icon: faLinkedin,
     url: "https://www.linkedin.com/in/reese-phillips-9383261ba/",
+  },
+  {
+    icon: faEnvelope,
+    url: "mailto: Cryptogrease8@gmail.com",
   },
 ];
 
@@ -47,7 +50,10 @@ const Header = () => {
       transitionProperty="transform"
       transitionDuration=".3s"
       transitionTimingFunction="ease-in-out"
-      backgroundColor="#18181b"
+      backgroundColor="rgba(10, 14, 26, 0.95)"
+      backdropFilter="blur(10px)"
+      borderBottom="1px solid rgba(0, 255, 136, 0.1)"
+      zIndex={1000}
     >
       <Box color="white" maxWidth="1280px" margin="0 auto">
         <HStack
@@ -67,6 +73,13 @@ const Header = () => {
           </nav>
           <nav>
             <HStack spacing={8}>
+              <a
+                href="#audits"
+                onClick={handleClick("audits")}
+                style={{ color: '#00ff88' }}
+              >
+                Audits
+              </a>
               <a
                 href="#projects"
                 onClick={handleClick("projects")}
