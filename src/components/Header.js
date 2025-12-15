@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
-  faLinkedin,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { Box, HStack } from "@chakra-ui/react";
@@ -16,10 +15,6 @@ const socials = [
   {
     icon: faGithub,
     url: "https://github.com/reesephillips",
-  },
-  {
-    icon: faLinkedin,
-    url: "https://www.linkedin.com/in/reese-phillips-9383261ba/",
   },
   {
     icon: faEnvelope,
