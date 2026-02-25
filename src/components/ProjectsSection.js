@@ -14,22 +14,22 @@ const projects = [
     tags: ["Solidity", "Web3", "React"]
   },
   {
-    title: "On-Chain SVG NFTs",
+    title: "AI Model Marketplace",
     description:
-      "Fully on-chain generative NFT collection deployed on Ethereum. SVG data and metadata stored directly on blockchain, no IPFS required.",
-    getImageSrc: () => require("../images/funnynft.jpg"),
-    liveLink: "https://funny-name-nft.vercel.app/",
-    sourceLink: 'https://github.com/reesephillips/nft-name-generator',
-    tags: ["Solidity", "NFTs", "SVG"]
+      "A decentralized blockchain platform that connects three key parties in the AI ecosystem: data providers, model requesters, and compute providers with GPU resources.",
+    getImageSrc: () => require("../images/AIModel.png"),
+    liveLink: "",
+    sourceLink: 'https://github.com/reese260/AI-Model-Marketplace',
+    tags: ["Solidity", "ZK Proofs", "Next.js"]
   },
   {
-    title: "Student Management System",
+    title: "Polymarket and Kalshi Arbitrage Bot",
     description:
-      "Full-stack CRUD application with Java Spring Boot backend and MySQL database. Features RESTful API architecture and responsive UI.",
-    getImageSrc: () => require("../images/ems.jpg"),
+      "A Discord bot that monitors prediction markets on Polymarket and Kalshi, identifies arbitrage opportunities, and sends alerts to your Discord channel.",
+    getImageSrc: () => require("../images/ArbBot.png"),
     liveLink: "",
-    sourceLink: 'https://github.com/reesephillips/Employee-Management-System',
-    tags: ["Java", "Spring Boot", "MySQL"]
+    sourceLink: 'https://github.com/reese260/Poly-Kalshi-Arb',
+    tags: ["Python"]
   },
 ];
 
