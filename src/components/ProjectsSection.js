@@ -18,7 +18,7 @@ const projects = [
     description:
       "A decentralized blockchain platform that connects three key parties in the AI ecosystem: data providers, model requesters, and compute providers with GPU resources.",
     getImageSrc: () => require("../images/AIModel.png"),
-    liveLink: "",
+    liveLink: "https://ai-model-marketplace-hys6dpxl7-reesephillips-projects.vercel.app/",
     sourceLink: 'https://github.com/reese260/AI-Model-Marketplace',
     tags: ["Solidity", "ZK Proofs", "Next.js"]
   },
