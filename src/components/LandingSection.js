@@ -8,7 +8,7 @@ const bio1 = "Smart Contract Security Researcher & Full-Stack Developer";
 const bio2 = "I specialize in finding critical vulnerabilities in DeFi protocols and blockchain applications. With multiple high-severity findings across platforms like CodeHawks and Sherlock, I help secure millions of dollars in protocols. I also build decentralized applications and full-stack solutions, combining security expertise with development skills.";
 
 const imageSrc = {
-  getImageSrc: () => require("../images/citizen.jpg")
+  getImageSrc: () => require("../images/headshot.jpeg")
 }
 
 const LandingSection = () => (
